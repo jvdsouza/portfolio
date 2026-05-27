@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact — NAME HERE"
+  description="Get in touch with NAME HERE."
+>
+  <div class="page">
+
+    <section class="page-header">
+      <h1>Contact</h1>
+      <p>
+        The best ways to reach me. I'm generally open to conversations about engineering,
+        learning systems, or interesting problems.
+      </p>
+    </section>
+
+    <ul class="contact-list">
+      <li>
+        <span class="label">LinkedIn</span>
+        <!-- TODO: replace href with your LinkedIn profile URL -->
+        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">
+          linkedin.com/in/your-profile
+        </a>
+      </li>
+      <li>
+        <span class="label">GitHub</span>
+        <a href="https://github.com/jvdsouza" target="_blank" rel="noopener">
+          github.com/jvdsouza
+        </a>
+      </li>
+      <li>
+        <span class="label">Email</span>
+        <a href="mailto:EMAIL HERE">
+          EMAIL HERE
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: 40px;
+  }
+
+  .page-header h1 { margin-bottom: 12px; }
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .contact-list li {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: baseline;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  .contact-list li:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-3);
+  }
+
+  .contact-list a {
+    font-size: 15px;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .contact-list a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+</style>

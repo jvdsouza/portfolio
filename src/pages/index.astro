@@ -1,11 +1,95 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const base = import.meta.env.BASE_URL;
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="NAME HERE"
+  description="Software engineer focused on learning systems, developer tooling, and thoughtful product engineering."
+>
+  <div class="page">
+
+    <section class="hero">
+      <h1>NAME HERE</h1>
+      <p class="subtitle">Software Engineer</p>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        I build software with an emphasis on clarity, maintainability, and the humans on both
+        sides of the system. My work spans product engineering, developer tooling, and learning
+        technology — with a consistent interest in how systems are designed and how they hold up
+        under real use.
+      </p>
+      <p>
+        This site is a place to make my work and thinking legible. It's a work in progress.
+      </p>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Engineering focus</h2>
+      <ul>
+        <li>Learning systems and structured commentary for education</li>
+        <li>Developer tooling and AI workflow integration</li>
+        <li>System design — interfaces, APIs, data models, constraints</li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Find me</h2>
+      <ul class="link-list">
+        <li>
+          <a href="https://github.com/jvdsouza" target="_blank" rel="noopener">GitHub</a>
+          <span class="link-note">jvdsouza</span>
+        </li>
+        <li>
+          <!-- TODO: replace with your LinkedIn URL -->
+          <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+          <span class="link-note">your-profile</span>
+        </li>
+        <li>
+          <a href={`${base}contact`}>Get in touch</a>
+          <span class="link-note">email and more</span>
+        </li>
+      </ul>
+    </section>
+
+  </div>
 </Layout>
+
+<style>
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--text-3);
+    margin-bottom: 0;
+  }
+
+  h2 { margin-bottom: 16px; }
+
+  .link-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .link-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0;
+  }
+
+  .link-note {
+    font-size: 14px;
+    color: var(--text-3);
+  }
+</style>
