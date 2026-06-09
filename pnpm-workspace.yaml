@@ -1,4 +1,3 @@
-onlyBuiltDependencies:
-  - astro
-  - esbuild
-  - sharp
+allowBuilds:
+  sharp: true
+  esbuild: true
