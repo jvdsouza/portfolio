@@ -2,6 +2,7 @@
 title: Quick Note Overlay App
 tags: [AI, Tooling]
 status: Ongoing
+date: '2026-06-09'
 order: 3
 summary:
   - A quick application created through AI assisted development, this product's aim was to reduce overhead when needing a place to write a thought, idea, or breakthrough before it disappears.
