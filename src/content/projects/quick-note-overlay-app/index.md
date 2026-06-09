@@ -1,6 +1,6 @@
 ---
 title: Quick Note Overlay App
-tags: [AI, Tooling]
+tags: [Tooling, Product]
 status: Ongoing
 date: '2026-06-09'
 order: 3
