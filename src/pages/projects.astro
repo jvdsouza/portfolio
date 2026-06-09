@@ -1,36 +1,19 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config';
 
-const projects = [
-  {
-    title: 'Commentary Learning Framework',
-    tags: ['Education', 'Product'],
-    status: 'In development',
-    description:
-      'A framework for structured commentary in learning environments — enabling richer feedback, annotation, and dialogue around educational content. Replace this with a description of the problem, your approach, and what makes it interesting.',
-    link: null as string | null,
-  },
-  {
-    title: 'Engineering Project',
-    tags: ['Engineering'],
-    status: 'Coming soon',
-    description:
-      'Placeholder for an engineering-focused project. Describe the problem you were solving, your approach, and what you built. What made it technically interesting or hard?',
-    link: null as string | null,
-  },
-  {
-    title: 'AI Workflow Experimentation',
-    tags: ['AI', 'Tooling'],
-    status: 'Ongoing',
-    description:
-      'Exploration of how AI tools integrate into real engineering workflows — what works, what breaks, and where the interesting design problems are. Notes and experiments from ongoing use.',
-    link: null as string | null,
-  },
-];
+const base = import.meta.env.BASE_URL;
+
+const allProjects = await getCollection('projects');
+const projects = allProjects.sort((a, b) => a.data.order - b.data.order);
+
+const slug = (id: string) => id.replace('/index.md', '');
+const hasPreview = (body: string | undefined) => !!body?.trim();
 ---
 
 <Layout
-  title="Projects — NAME HERE"
+  title={`Projects — ${site.name}`}
   description="Selected projects in learning systems, engineering, and AI workflows."
 >
   <div class="page">
@@ -41,21 +24,28 @@ const projects = [
     </section>
 
     <div class="project-list">
-      {projects.map(({ title, tags, status, description, link }) => (
+      {projects.map((project) => (
         <article class="project">
           <div class="project-header">
-            <h2>{title}</h2>
+            <h2>{project.data.title}</h2>
             <div class="meta">
-              {tags.map(tag => <span class="tag">{tag}</span>)}
-              <span class="status">{status}</span>
+              {project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+              <span class="status">{project.data.status}</span>
             </div>
           </div>
-          <p>{description}</p>
-          {link && (
-            <a href={link} target="_blank" rel="noopener" class="project-link">
-              View project →
-            </a>
-          )}
+          {project.data.summary.map((paragraph) => <p>{paragraph}</p>)}
+          <div class="links">
+            {hasPreview(project.body) && (
+              <a href={`${base}projects/${slug(project.id)}`} class="project-link">
+                Check out a preview here →
+              </a>
+            )}
+            {project.data.link && (
+              <a href={project.data.link.url} target="_blank" rel="noopener" class="project-link">
+                {project.data.link.title} →
+              </a>
+            )}
+          </div>
         </article>
       ))}
     </div>
@@ -110,6 +100,12 @@ const projects = [
     font-size: 12px;
     color: var(--text-3);
     margin-left: 2px;
+  }
+
+  .links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
   }
 
   .project-link {

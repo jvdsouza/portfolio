@@ -37,6 +37,13 @@ jobs:
 
       - name: Build
         run: pnpm run build
+        env:
+          PORTFOLIO_NAME: ${{ vars.PORTFOLIO_NAME }}
+          PORTFOLIO_ROLE: ${{ vars.PORTFOLIO_ROLE }}
+          PORTFOLIO_DESCRIPTION: ${{ vars.PORTFOLIO_DESCRIPTION }}
+          PORTFOLIO_EMAIL: ${{ vars.PORTFOLIO_EMAIL }}
+          PORTFOLIO_GITHUB: ${{ vars.PORTFOLIO_GITHUB }}
+          PORTFOLIO_LINKEDIN: ${{ vars.PORTFOLIO_LINKEDIN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

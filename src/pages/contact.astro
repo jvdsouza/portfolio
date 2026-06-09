@@ -1,10 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config';
+
+const githubDisplay = site.github.replace('https://', '');
+const linkedinDisplay = site.linkedin.replace('https://', '');
 ---
 
 <Layout
-  title="Contact — NAME HERE"
-  description="Get in touch with NAME HERE."
+  title={`Contact — ${site.name}`}
+  description={`Get in touch with ${site.name}.`}
 >
   <div class="page">
 
@@ -19,21 +23,20 @@ import Layout from '../layouts/Layout.astro';
     <ul class="contact-list">
       <li>
         <span class="label">LinkedIn</span>
-        <!-- TODO: replace href with your LinkedIn profile URL -->
-        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">
-          linkedin.com/in/your-profile
+        <a href={site.linkedin} target="_blank" rel="noopener">
+          {linkedinDisplay}
         </a>
       </li>
       <li>
         <span class="label">GitHub</span>
-        <a href="https://github.com/jvdsouza" target="_blank" rel="noopener">
-          github.com/jvdsouza
+        <a href={site.github} target="_blank" rel="noopener">
+          {githubDisplay}
         </a>
       </li>
       <li>
         <span class="label">Email</span>
-        <a href="mailto:EMAIL HERE">
-          EMAIL HERE
+        <a href={`mailto:${site.email}`}>
+          {site.email}
         </a>
       </li>
     </ul>

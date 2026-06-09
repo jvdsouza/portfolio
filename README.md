@@ -1,46 +1,65 @@
-# Astro Starter Kit: Basics
+# Jason D'souza — Portfolio
+
+Personal portfolio site for Jason D'souza, Full Stack Software Engineer. Built to present work, experience, and writing clearly — no flashy tricks, just straightforward communication.
+
+Live at: [jvdsouza.github.io/portfolio](https://jvdsouza.github.io/portfolio)
+
+## Stack
+
+- [Astro v6](https://astro.build) — static site generator
+- Content Collections — project data and preview pages authored in Markdown
+- Deployed to GitHub Pages via GitHub Actions on push to `main`
+
+## Structure
+
+```
+src/
+  content/
+    projects/<slug>/
+      index.md        # frontmatter (title, tags, status, summary) + optional prose body
+      *.png           # co-located images, referenced as ./filename.png in markdown
+  pages/
+    index.astro       # homepage
+    projects.astro    # project listing
+    projects/
+      [slug].astro    # generated preview page (only for projects with a prose body)
+    resume.astro
+    contact.astro
+  layouts/
+    Layout.astro
+  components/
+    Nav.astro
+  content.config.ts   # Zod schema for the projects collection
+  config.ts           # site-wide personal info, read from .env
+```
+
+## Local development
 
 ```sh
-pnpm create astro@latest -- --template basics
+pnpm install
+pnpm dev              # http://localhost:4321/portfolio
+pnpm build            # production build to dist/
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Copy `.env.example` to `.env` and fill in your details before running.
 
-## 🚀 Project Structure
+## Adding a project
 
-Inside of your Astro project, you'll see the following folders and files:
+Create `src/content/projects/<slug>/index.md`:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```md
+---
+title: Project Name
+tags: [Tag]
+status: In progress
+order: 4
+summary:
+  - One sentence shown on the projects listing.
+link: null            # or: { title: 'GitHub', url: 'https://...' }
+---
+
+Optional preview content goes here. Leave the body empty and no preview page is generated.
+
+![Screenshot](./screenshot.png)
+*Caption text — italics after an image render as a caption*
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

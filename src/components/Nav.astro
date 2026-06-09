@@ -1,4 +1,6 @@
 ---
+import { site } from '../config';
+
 const base = import.meta.env.BASE_URL;
 const baseClean = base.endsWith('/') ? base.slice(0, -1) : base;
 const path = Astro.url.pathname;
@@ -14,7 +16,7 @@ const links = [
 
 <header>
   <nav>
-    <a href={base} class:list={['name', { active: isHome }]}>NAME HERE</a>
+    <a href={base} class:list={['name', { active: isHome }]}>{site.name}</a>
     <ul>
       {links.map(({ href, label }) => {
         const active = path === href || path.startsWith(href + '/');

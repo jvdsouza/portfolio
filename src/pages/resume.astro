@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { site } from '../config';
 
 const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
-  title="Resume — NAME HERE"
-  description="NAME HERE — software engineer resume."
+  title={`Resume — ${site.name}`}
+  description={`${site.name} — software engineer resume.`}
 >
   <div class="page">
 
