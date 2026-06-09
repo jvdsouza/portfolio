@@ -35,15 +35,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Write environment file
+        run: |
+          echo "PORTFOLIO_NAME=${{ secrets.PORTFOLIO_NAME }}" >> .env
+          echo "PORTFOLIO_ROLE=${{ secrets.PORTFOLIO_ROLE }}" >> .env
+          echo "PORTFOLIO_DESCRIPTION=${{ secrets.PORTFOLIO_DESCRIPTION }}" >> .env
+          echo "PORTFOLIO_EMAIL=${{ secrets.PORTFOLIO_EMAIL }}" >> .env
+          echo "PORTFOLIO_GITHUB=${{ secrets.PORTFOLIO_GITHUB }}" >> .env
+          echo "PORTFOLIO_LINKEDIN=${{ secrets.PORTFOLIO_LINKEDIN }}" >> .env
+
       - name: Build
         run: pnpm run build
-        env:
-          PORTFOLIO_NAME: ${{ vars.PORTFOLIO_NAME }}
-          PORTFOLIO_ROLE: ${{ vars.PORTFOLIO_ROLE }}
-          PORTFOLIO_DESCRIPTION: ${{ vars.PORTFOLIO_DESCRIPTION }}
-          PORTFOLIO_EMAIL: ${{ vars.PORTFOLIO_EMAIL }}
-          PORTFOLIO_GITHUB: ${{ vars.PORTFOLIO_GITHUB }}
-          PORTFOLIO_LINKEDIN: ${{ vars.PORTFOLIO_LINKEDIN }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
