@@ -38,12 +38,12 @@ jobs:
 
       - name: Write environment file
         run: |
-          echo "PORTFOLIO_NAME=${{ secrets.PORTFOLIO_NAME }}" >> .env
-          echo "PORTFOLIO_ROLE=${{ secrets.PORTFOLIO_ROLE }}" >> .env
-          echo "PORTFOLIO_DESCRIPTION=${{ secrets.PORTFOLIO_DESCRIPTION }}" >> .env
-          echo "PORTFOLIO_EMAIL=${{ secrets.PORTFOLIO_EMAIL }}" >> .env
-          echo "PORTFOLIO_GITHUB=${{ secrets.PORTFOLIO_GITHUB }}" >> .env
-          echo "PORTFOLIO_LINKEDIN=${{ secrets.PORTFOLIO_LINKEDIN }}" >> .env
+          echo "PORTFOLIO_NAME=${{ vars.PORTFOLIO_NAME }}" >> .env
+          echo "PORTFOLIO_ROLE=${{ vars.PORTFOLIO_ROLE }}" >> .env
+          echo "PORTFOLIO_DESCRIPTION=${{ vars.PORTFOLIO_DESCRIPTION }}" >> .env
+          echo "PORTFOLIO_EMAIL=${{ vars.PORTFOLIO_EMAIL }}" >> .env
+          echo "PORTFOLIO_GITHUB=${{ vars.PORTFOLIO_GITHUB }}" >> .env
+          echo "PORTFOLIO_LINKEDIN=${{ vars.PORTFOLIO_LINKEDIN }}" >> .env
 
       - name: Build
         run: pnpm run build
