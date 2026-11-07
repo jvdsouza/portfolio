@@ -5,10 +5,10 @@ status: In development
 date: '2026-06-09'
 order: 1
 summary:
-  - A simple feedback tool for assisting in improving the skill of commentary in learning environments — enabling richer feedback, annotation, and dialogue around educational content.
-  - The system is an exploration into improving the experience of both mentors and mentees when learning a large, spanning, ambiguous field. The expression of mentors and their domain knowledge is aimed to be enhanced, rather than replaced, in this project.
-  - Built on Node.js with Express on the back end and React with Vite on the front end — a stack chosen with the developers involved in producing the product in mind.
-  - The development of the project also takes into account the rapid development of AI and the infrastructure around it, and aims to accommodate that through its software design.
+  - The application uses a React frontend and Node.js/Express backend to transform uploaded commentary recordings into structured feedback.
+  - The processing pipeline coordinates media processing, external AI services, analysis of commentary segments, and synthesis of the results into feedback that users can explore by speaker, skill and chronological order.
+  - An important design consideration is separating the application's feedback workflow from the underlying AI provider. This allows the implementation to evolve as models and APIs change, while keeping the user experience focused on learning rather than the technology generating the feedback.
+  - The project has also involved considering the reliability of external integrations, the structure of generated outputs, and the presentation of feedback in ways that support human judgement.
 link: null
 ---
 

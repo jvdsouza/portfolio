@@ -37,7 +37,7 @@ const hasPreview = (body: string | undefined) => !!body?.trim();
           <div class="links">
             {hasPreview(project.body) && (
               <a href={`${base}projects/${slug(project.id)}`} class="project-link">
-                Check out a preview here →
+                Read Case Study →
               </a>
             )}
             {project.data.link && (
